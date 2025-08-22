@@ -30,7 +30,7 @@ const VerifyEmailContent = () => {
         }
 
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4001"}/api/verify/verifyemail`,
+          `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://the-chat-backend.onrender.com"}/api/verify/verifyemail`,
           { params: { userId, token } }
         );
 

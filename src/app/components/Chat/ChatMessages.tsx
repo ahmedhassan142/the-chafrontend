@@ -217,7 +217,7 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
     setDeletingId(messageId);
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4001"}/api/user/messages/${messageId}`, 
+        `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://the-chat-backend.onrender.com"}/api/user/messages/${messageId}`, 
         {
           method: 'DELETE',
           headers: {
@@ -260,7 +260,7 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
     setIsDeletingAll(true);
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4001"}/api/user/messages/clear-conversation/${selectedUserId}`, 
+        `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://the-chat-backend.onrender.com"}/api/user/messages/clear-conversation/${selectedUserId}`, 
         {
           method: 'DELETE',
           headers: {

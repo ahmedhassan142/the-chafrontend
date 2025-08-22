@@ -93,7 +93,7 @@ const ProfilePage = () => {
     const fetchAvatars = async () => {
       try {
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://chatsbakend.onrender.com"}/api/avatar/all`,
+          `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://the-chat-backend.onrender.com"}/api/avatar/all`,
           {
             headers: token ? { 'Authorization': `Bearer ${token}` } : {},
             withCredentials: true

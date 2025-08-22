@@ -67,10 +67,10 @@ const Dashboard = () => {
     try {
       setLoading(true);
       const [statsResponse, activityResponse] = await Promise.all([
-        axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4001"}/api/user/dashboard/stats`, {
+        axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://the-chat-backend.onrender.com"}/api/user/dashboard/stats`, {
           headers: { Authorization: `Bearer ${token}` }
         }),
-        axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4001"}/api/user/dashboard/activity`, {
+        axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://the-chat-backend.onrender.com"}/api/user/dashboard/activity`, {
           headers: { Authorization: `Bearer ${token}` }
         })
       ]);

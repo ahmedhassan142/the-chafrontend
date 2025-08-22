@@ -97,7 +97,7 @@ const handleUserSelect = (userId: string) => {
   if (!isAuthenticated) return;
      setLoadingContacts(true);
   try {
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4001"}/api/user/people`, {
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://the-chat-backend.onrender.com"}/api/user/people`, {
       headers: {
         Authorization: `Bearer ${token}`,
         withCredentials: true
@@ -144,7 +144,7 @@ const fetchMessages = useCallback(async (loadMore = false, beforeDate?: string) 
 
   try {
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4001"}/api/user/messages/${selectedUserId}`,
+      `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://the-chat-backend.onrender.com"}/api/user/messages/${selectedUserId}`,
       { 
         headers: { Authorization: `Bearer ${token}` },
         params: {
@@ -185,7 +185,7 @@ const fetchMessages = useCallback(async (loadMore = false, beforeDate?: string) 
     }
 
     setConnectionStatus('connecting');
-    const wsUrl = `wss://chatsbakend.onrender.com/ws?token=${encodeURIComponent(token)}`;
+    const wsUrl = `wss://the-chat-backend.onrender.com/ws?token=${encodeURIComponent(token)}`;
 
     try {
       const socket = new WebSocket(wsUrl);

@@ -42,7 +42,7 @@ export const ProfileProvider: React.FC<{children: ReactNode}> = ({ children }) =
       const cookieToken = Cookies.get("authToken");
       
       const response = await axios.get(
-        "http://localhost:4001/api/user/profile",
+        "https://the-chat-backend.onrender.com/api/user/profile",
         {
           headers: {
             Authorization: cookieToken ? `Bearer ${cookieToken}` : undefined
@@ -69,7 +69,7 @@ export const ProfileProvider: React.FC<{children: ReactNode}> = ({ children }) =
       if (err.response?.status === 401) {
         try {
           const fallbackResponse = await axios.get(
-            `${process.env.NEXT_PUBLIC_API_BASE_URL||'http://localhost:4001'}/api/user/profile`,
+            `${process.env.NEXT_PUBLIC_API_BASE_URL||'https://the-chat-backend.onrender.com'}/api/user/profile`,
             { withCredentials: true } // Rely on cookies only
           );
           
