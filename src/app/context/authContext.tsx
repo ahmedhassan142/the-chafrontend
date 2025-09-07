@@ -99,7 +99,7 @@ const checkAuth = async (): Promise<boolean> => {
       
       // Store token in both cookie and state
       if (response.data.token) {
-        Cookies.set("authToken", response.data.token, { expires: 7, secure: true });
+        Cookies.set("authToken", response.data.token, { expires: 7,   sameSite: 'lax' });
         setToken(response.data.token);
       }
       setIsAuthenticated(true);
