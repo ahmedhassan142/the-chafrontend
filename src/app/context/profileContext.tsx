@@ -93,6 +93,13 @@ export const ProfileProvider: React.FC<{children: ReactNode}> = ({ children }) =
   useEffect(() => {
     fetchUserDetails();
   }, [fetchUserDetails]);
+  // In your profile context, add this useEffect:
+useEffect(() => {
+  // If we're authenticated but don't have user details, fetch them
+  if (isAuthenticated && !userDetails && !isLoading) {
+    fetchUserDetails();
+  }
+}, [isAuthenticated, userDetails, isLoading, fetchUserDetails]);
 
   return (
     <ProfileContext.Provider value={{ 
